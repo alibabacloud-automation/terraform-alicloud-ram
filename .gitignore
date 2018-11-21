@@ -1,12 +1,25 @@
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+# used for testing
+*.tfvars
 
-# Test binary, build with `go test -c`
-*.test
+# Compiled files
+*.tfstate
+*.tfstate.backup
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+# Module directory
+.terraform/
+
+# terraform log
+*.log
+
+# auto-generated key pair file
+*.pem
+
+# tools files
+.DS_Store
+.idea
+
+# others
+*.bak
+*.bk
+
+
