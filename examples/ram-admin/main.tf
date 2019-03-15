@@ -8,7 +8,8 @@ provider "alicloud" {
 module "ram_admin" {
   source = "../../modules/ram-admin"
 
-  name = "terraformtest2"
+  name = "terraformtest3"
 
   password = "USer@123"
+  is_admin = true
 }
