@@ -6,7 +6,7 @@ provider "alicloud" {
 # RAM user, login profile and access key
 #########################################
 module "ram_admin" {
-  source = "../../modules/ram-admin"
+  source = "terraform-alicloud-ram/terraform-alicloud-ram/ram-admin"
 
   name = "terraformtest3"
 
