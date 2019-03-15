@@ -3,6 +3,16 @@ variable "create_user" {
   default     = true
 }
 
+variable "is_admin" {
+  description = "Whether to grant admin permission"
+  default     = false
+}
+
+variable "is_reader" {
+  description = "Whether to grant reader permission"
+  default     = true
+}
+
 variable "create_ram_user_login_profile" {
   description = "Whether to create ram user login profile"
   default     = true
