@@ -8,6 +8,8 @@ Creates RAM user, RAM login profile, RAM access key.The user created will be att
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| is_admin | Whether to grant administrator permission | string | `false` | no |
+| is_reader | Whether to grant read-only permission | string | `true` | no |
 | create_ram_access_key | Whether to create RAM access key | string | `true` | no |
 | create_ram_user_login_profile | Whether to create RAM user login profile | string | `true` | no |
 | create_user | Whether to create the RAM user | string | `true` | no |
