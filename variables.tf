@@ -1,16 +1,21 @@
-variable "create_user" {
-  description = "Whether to create the ram user"
-  default     = true
+variable "is_admin" {
+  description = "Whether to grant admin permission"
+  default     = false
+}
+
+variable "is_reader" {
+  description = "Whether to grant reader permission"
+  default     = false
 }
 
 variable "create_ram_user_login_profile" {
   description = "Whether to create ram user login profile"
-  default     = true
+  default     = false
 }
 
 variable "create_ram_access_key" {
   description = "Whether to create ram access key"
-  default     = true
+  default     = false
 }
 
 variable "name" {
@@ -18,11 +23,12 @@ variable "name" {
 }
 
 variable "password" {
-  description = "password of ther user "
+  description = "Login password of the user"
+  default = ""
 }
 
 variable "secret_file" {
-  description = "password of ther user "
+  description = "A file used to store access key and secret key of ther user "
   default     = "secret.txt"
 }
 

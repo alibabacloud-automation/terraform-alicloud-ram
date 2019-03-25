@@ -6,9 +6,12 @@ provider "alicloud" {
 # RAM user, login profile and access key
 #########################################
 module "ram_user" {
-  source = "terraform-alicloud-ram/terraform-alicloud-ram/ram-user"
+  source = "../.."
 
   name = "terraformtest1"
 
-  password = "USer@123"
+  create_ram_user_login_profile = true
+  password = "User@123"
+
+  create_ram_access_key = true
 }

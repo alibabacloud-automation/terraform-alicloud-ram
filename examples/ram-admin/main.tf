@@ -3,13 +3,15 @@ provider "alicloud" {
 }
 
 #########################################
-# RAM user, login profile and access key
+# RAM admin, login profile
 #########################################
 module "ram_admin" {
-  source = "terraform-alicloud-ram/terraform-alicloud-ram/ram-admin"
+  source = "../.."
 
   name = "terraformtest3"
 
-  password = "USer@123"
+  create_ram_user_login_profile = true
+  password = "User@123"
+
   is_admin = true
 }

@@ -2,31 +2,71 @@
 
 These types of resources are supported:
 
-* [IAM user](https://www.terraform.io/docs/providers/aws/r/iam_user.html)
-* [IAM user login profile](https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile.html)
-* [IAM access key](https://www.terraform.io/docs/providers/aws/r/iam_access_key.html)
+* [RAM user](https://www.terraform.io/docs/providers/aws/r/iam_user.html)
+* [RAM user login profile](https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile.html)
+* [RAM access key](https://www.terraform.io/docs/providers/aws/r/iam_access_key.html)
 
 ## Usage
 
+### create a new ram user
 
-`iam-user`:
+Create a ram user without any access permission
 ```hcl
 module "ram_user" {
-  source = "../../modules/ram-user"
-
-  name = "terraformtest1"
-
-  password = "USer@123"
-}
-
+   source = "terraform-alicloud-modules/ram/alicloud"
+   name = "terraformtest1"
+ }
 ```
 
+Setting `create_ram_user_login_profile` to true can allow the ram user login the web console
+
+```hcl
+module "ram_user" {
+   source = "terraform-alicloud-modules/ram/alicloud"
+   name = "terraformtest1"
+   create_ram_user_login_profile = true
+   password = "User@123"
+ }
+```
+
+Setting `create_ram_access_key` to true can allocate a access key and secret key to the ram user
+, and them will store into the default secret file `secret.txt`
+
+```hcl
+module "ram_user" {
+   source = "terraform-alicloud-modules/ram/alicloud"
+   name = "terraformtest1"
+   create_ram_access_key = true
+ }
+```
+
+### create a new ram user with some access permission
+
+Create a ram admin
+
+```hcl
+module "ram_user" {
+   source = "terraform-alicloud-modules/ram/alicloud"
+   name = "terraformtest1"
+   is_admin = true
+ }
+```
+
+Create a ram user with read-only permission
+
+```hcl
+module "ram_user" {
+   source = "terraform-alicloud-modules/ram/alicloud"
+   name = "terraformtest1"
+   is_reader = true
+ }
+```
 
 ## Examples
 
-* [iam-user](https://github.com/terraform-alicloud-modules/terraform-alicloud-ram/tree/master/examples/ram-user) - Add IAM user, login profile and access keys
+* [ram-user](https://github.com/terraform-alicloud-modules/terraform-alicloud-ram/tree/master/examples/ram-user) - Add RAM user, login profile and access keys
 
-* [iam-admin](https://github.com/terraform-alicloud-modules/terraform-alicloud-ram/tree/master/examples/ram-admin) - Add IAM user with administrator previlleage, login profile and access keys
+* [ram-admin](https://github.com/terraform-alicloud-modules/terraform-alicloud-ram/tree/master/examples/ram-admin) - Add RAM user with administrator previlleage, login profile and access keys
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
