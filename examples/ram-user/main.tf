@@ -11,7 +11,7 @@ module "ram_user" {
   name = "terraformtest1"
 
   create_ram_user_login_profile = true
-  password = "User@123"
+  password                      = "User@123"
 
   create_ram_access_key = true
 }

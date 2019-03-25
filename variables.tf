@@ -24,7 +24,7 @@ variable "name" {
 
 variable "password" {
   description = "Login password of the user"
-  default = ""
+  default     = ""
 }
 
 variable "secret_file" {
