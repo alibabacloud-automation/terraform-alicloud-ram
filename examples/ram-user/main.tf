@@ -15,3 +15,4 @@ module "ram_user" {
 
   create_ram_access_key = true
 }
+
