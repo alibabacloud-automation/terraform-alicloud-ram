@@ -1,3 +1,8 @@
+variable "region" {
+  description = "The region used to launch this module resources."
+  default     = ""
+}
+
 variable "is_admin" {
   description = "Whether to grant admin permission"
   default     = false
@@ -36,3 +41,4 @@ variable "force_destroy" {
   description = "When destroying this user, destroy even if it has non-Terraform-managed ram access keys, login profile or MFA devices. Without force_destroy a user with non-Terraform-managed access keys and login profile will fail to be destroyed."
   default     = false
 }
+

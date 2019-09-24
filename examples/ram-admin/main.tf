@@ -17,3 +17,4 @@ module "ram_admin" {
 
   is_admin = true
 }
+
