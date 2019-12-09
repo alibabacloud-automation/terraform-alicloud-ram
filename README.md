@@ -2,9 +2,9 @@
 
 These types of resources are supported:
 
-* [RAM user](https://www.terraform.io/docs/providers/aws/r/iam_user.html)
-* [RAM user login profile](https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile.html)
-* [RAM access key](https://www.terraform.io/docs/providers/aws/r/iam_access_key.html)
+* [RAM user](https://www.terraform.io/docs/providers/alicloud/r/ram_user.html)
+* [RAM user login profile](https://www.terraform.io/docs/providers/alicloud/r/ram_login_profile.html)
+* [RAM access key](https://www.terraform.io/docs/providers/alicloud/r/ram_access_key.html)
 
 ## Usage
 
