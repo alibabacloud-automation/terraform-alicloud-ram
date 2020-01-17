@@ -1,6 +1,7 @@
-# RAM user example
+# RAM account example
 
-Configuration in this directory creates RAM user with specified password, a pair of access key and access secret, which will be stored in './secret.txt'. This user will be attached with no policy.
+Configuration in this directory sets Alicloud account alias (also known as Console Account alias) and configures password policy.
+
 
 # Usage
 
@@ -19,6 +20,6 @@ Run `terraform destroy` when you don't need these resources.
 ## Outputs
 | Name | Description |
 |------|-------------|
-| this_ram_user_name | The user's name |
-| this_ram_user_unique_id | The unique ID assigned by Alibaba Cloud |
+| this_caller_identity_account_id | The ID of the Alicloud account |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
