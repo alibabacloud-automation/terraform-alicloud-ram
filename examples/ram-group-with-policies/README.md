@@ -1,6 +1,7 @@
-# RAM user example
+# RAM group with policies example
 
-Configuration in this directory creates RAM user with specified password, a pair of access key and access secret, which will be stored in './secret.txt'. This user will be attached with no policy.
+Configuration in this directory creates RAM group with users who has specified RAM policies.
+
 
 # Usage
 
@@ -19,6 +20,7 @@ Run `terraform destroy` when you don't need these resources.
 ## Outputs
 | Name | Description |
 |------|-------------|
-| this_ram_user_name | The user's name |
-| this_ram_user_unique_id | The unique ID assigned by Alibaba Cloud |
+| this_group_users | List of RAM users in RAM group |
+| this_group_name | RAM group name |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

@@ -1,18 +1,13 @@
-provider "alicloud" {
-  region = "cn-hangzhou"
-}
-
 #########################################
 # RAM user, login profile and access key
 #########################################
 module "ram_user" {
-  source = "../.."
+  source = "../../modules/ram-user"
 
-  name = "terraformtest1"
-
+  name                          = "terraformtest0"
+  password                      = "123_Xxxxxxxxx"
   create_ram_user_login_profile = true
-  password                      = "User@123"
-
-  create_ram_access_key = true
+  create_ram_access_key         = true
 }
+
 

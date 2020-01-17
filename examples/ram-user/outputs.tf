@@ -4,12 +4,8 @@ output "this_ram_user_name" {
 }
 
 output "this_ram_user_unique_id" {
-  description = "The unique ID assigned by AWS"
+  description = "The unique ID assigned by Alibaba Cloud"
   value       = module.ram_user.this_ram_user_unique_id
 }
 
-output "this_ram_access_key_id" {
-  description = "The access key ID"
-  value       = module.ram_user.this_ram_access_key_id
-}
 
