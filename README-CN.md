@@ -78,7 +78,7 @@ module "ram_user" {
  }
 ```
 
-## 模板
+## 子模板
 
 * [ram-user module](https://github.com/terraform-alicloud-modules/terraform-alicloud-ram/tree/master/modules/ram-user)
 * [ram-policy module](https://github.com/terraform-alicloud-modules/terraform-alicloud-ram/tree/master/modules/ram-policy)
