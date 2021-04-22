@@ -45,7 +45,7 @@ resource "alicloud_ram_login_profile" "this" {
 #########################
 resource "alicloud_ram_access_key" "this" {
   count = var.create_user && var.create_ram_access_key && var.pgp_key != "" ? 1 : 0
-
+  user_name = alicloud_ram_user.this[count.index].name
   secret_file = var.secret_file != "" ? var.secret_file : null
   status      = var.status
   pgp_key     = var.pgp_key != "" ? var.pgp_key : null
@@ -53,7 +53,7 @@ resource "alicloud_ram_access_key" "this" {
 
 resource "alicloud_ram_access_key" "this_no_pgp" {
   count = var.create_user && var.create_ram_access_key ? 1 : 0
-
+  user_name = alicloud_ram_user.this[count.index].name
   secret_file = var.secret_file != "" ? var.secret_file : null
   status      = var.status
 }
