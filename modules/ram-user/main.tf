@@ -52,7 +52,7 @@ resource "alicloud_ram_access_key" "this" {
 }
 
 resource "alicloud_ram_access_key" "this_no_pgp" {
-  count = var.create_user && var.create_ram_access_key == "" ? 1 : 0
+  count = var.create_user && var.create_ram_access_key ? 1 : 0
 
   secret_file = var.secret_file != "" ? var.secret_file : null
   status      = var.status
