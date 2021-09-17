@@ -106,7 +106,7 @@ module "ram_user" {
 
 ## 作者
 
-Module managed by Zhou qilin(z17810666992@163.com), Yunlong Chen(chenyunlong@msn.com).
+Created and maintained by Alibaba Cloud Terraform Team(terraform@alibabacloud.com)
 
 ## 许可
 
