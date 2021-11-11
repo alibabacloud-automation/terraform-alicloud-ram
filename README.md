@@ -14,11 +14,6 @@ These types of resources are supported:
 * [RAM role attachment](https://www.terraform.io/docs/providers/alicloud/r/ram_role_attachment.html)
 * [RAM user policy attachment](https://www.terraform.io/docs/providers/alicloud/r/ram_user_policy_attachment.html)
 
-
-## Terraform versions
-
-For Terraform 0.12 use this module and Terraform Provider AliCloud 1.56.0+.
-
 ## Terraform versions
 
 | Name | Version |
@@ -42,7 +37,7 @@ Setting `create_ram_user_login_profile` to true can allow the ram user login the
 
 ```hcl
 module "ram_user" {
-   source = "terraform-alicloud-modules/ram/alicloud"
+   source = "terraform-alicloud-modules/ram_user/alicloud"
 
    name = "terraformtest1"
    create_ram_user_login_profile = true
@@ -55,7 +50,7 @@ Setting `create_ram_access_key` to true can allocate a access key and secret key
 
 ```hcl
 module "ram_user" {
-   source = "terraform-alicloud-modules/ram/alicloud"
+   source = "terraform-alicloud-modules/ram_user/alicloud"
 
    name = "terraformtest1"
    create_ram_access_key = true
@@ -68,7 +63,7 @@ Create a ram admin
 
 ```hcl
 module "ram_user" {
-   source = "terraform-alicloud-modules/ram/alicloud"
+   source = "terraform-alicloud-modules/ram_user/alicloud"
 
    name = "terraformtest1"
    is_admin = true
@@ -79,7 +74,7 @@ Create a ram user with read-only permission
 
 ```hcl
 module "ram_user" {
-   source = "terraform-alicloud-modules/ram/alicloud"
+   source = "terraform-alicloud-modules/ram_user/alicloud"
 
    name = "terraformtest1"
    is_reader = true
@@ -111,7 +106,7 @@ module "ram_user" {
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Notes
-From the version v1.9.0, the module has removed the following `provider` setting:
+From the version v1.6.0, the module has removed the following `provider` setting:
 
 ```hcl
 provider "alicloud" {
@@ -121,22 +116,21 @@ provider "alicloud" {
 }
 ```
 
-If you still want to use the `provider` setting to apply this module, you can specify a supported version, like 1.8.0:
+If you still want to use the `provider` setting to apply this module, you can specify a supported version, like 1.56.0:
 
 ```hcl
-module "vpc" {
-  source  = "alibaba/ram/alicloud"
-  version     = "1.8.0"
+module "ram_user" {
+  source = "terraform-alicloud-modules/ram_user/alicloud"
+  version     = "1.56.0"
   region      = "cn-hangzhou"
   profile     = "Your-Profile-Name"
-  
-  create            = true
-  vpc_name          = "my-env-ram"
-  // ...
+
+  name = "terraformtest1"
+  is_reader = true
 }
 ```
 
-If you want to upgrade the module to 1.9.0 or higher in-place, you can define a provider which same region with
+If you want to upgrade the module to 1.6.0 or higher in-place, you can define a provider which same region with
 previous region:
 
 ```hcl
@@ -144,11 +138,10 @@ provider "alicloud" {
    region  = "cn-hangzhou"
    profile = "Your-Profile-Name"
 }
-module "ram" {
-  source  = "alibaba/ram/alicloud"
-  create            = true
-  vpc_name          = "my-env-ram"
-  // ...
+module "ram_user" {
+  source = "terraform-alicloud-modules/ram_user/alicloud"
+  name = "terraformtest1"
+  is_reader = true
 }
 ```
 

@@ -1,5 +1,5 @@
 variable "region" {
-  description = "The region used to launch this module resources."
+  description = "(Deprecated from version 1.6.0)The region used to launch this module resources."
   type        = string
   default     = ""
 }
