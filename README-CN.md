@@ -14,9 +14,25 @@
 * [RAM role attachment](https://www.terraform.io/docs/providers/alicloud/r/ram_role_attachment.html)
 * [RAM user policy attachment](https://www.terraform.io/docs/providers/alicloud/r/ram_user_policy_attachment.html)
 
+## 注意事项
+本Module从版本v1.9.0开始已经移除掉如下的 provider 的显示设置：
+```hcl
+provider "alicloud" {
+  profile                 = var.profile != "" ? var.profile : null
+  region                  = var.region != "" ? var.region : null
+  skip_region_validation  = var.skip_region_validation
+}
+```
+定义完provider之后，运行命令 `terraform init` 和 `terraform apply` 来让这个provider生效即可。
+
+更多provider的使用细节，请移步[How to use provider in the module](https://www.terraform.io/docs/language/modules/develop/providers.html#passing-providers-explicitly)
+
 ## Terraform 版本
 
-如果您正在使用 Terraform 0.12.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.0 |
+| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | >= 1.56.0
 
 ## 用法
 

@@ -14,9 +14,27 @@ These types of resources are supported:
 * [RAM role attachment](https://www.terraform.io/docs/providers/alicloud/r/ram_role_attachment.html)
 * [RAM user policy attachment](https://www.terraform.io/docs/providers/alicloud/r/ram_user_policy_attachment.html)
 
+## Notes
+From the version v1.9.0, the module has removed the following `provider` setting:
+
+```hcl
+provider "alicloud" {
+  profile                 = var.profile != "" ? var.profile : null
+  region                  = var.region != "" ? var.region : null
+  skip_region_validation  = var.skip_region_validation
+}
+
 ## Terraform versions
 
-For Terraform 0.12.
+For Terraform 0.12 use this module and Terraform Provider AliCloud 1.56.0+.
+
+## Terraform versions
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.0 |
+| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | >= 1.56.0
+
 
 ## Usage
 

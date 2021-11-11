@@ -1,15 +1,8 @@
-provider "alicloud" {
-  version              = ">=1.56.0"
-  region               = var.region != "" ? var.region : null
-  configuration_source = "terraform-alicloud-modules/ram"
-}
-
 resource "random_uuid" "this" {}
 
 locals {
   name = var.name != "" ? var.name : substr("ram-user-${replace(random_uuid.this.result, "-", "")}", 0, 32)
 }
-
 
 ################################
 # RAM user
