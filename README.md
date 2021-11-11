@@ -14,15 +14,6 @@ These types of resources are supported:
 * [RAM role attachment](https://www.terraform.io/docs/providers/alicloud/r/ram_role_attachment.html)
 * [RAM user policy attachment](https://www.terraform.io/docs/providers/alicloud/r/ram_user_policy_attachment.html)
 
-## Notes
-From the version v1.9.0, the module has removed the following `provider` setting:
-
-```hcl
-provider "alicloud" {
-  profile                 = var.profile != "" ? var.profile : null
-  region                  = var.region != "" ? var.region : null
-  skip_region_validation  = var.skip_region_validation
-}
 
 ## Terraform versions
 
@@ -34,7 +25,6 @@ For Terraform 0.12 use this module and Terraform Provider AliCloud 1.56.0+.
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.0 |
 | <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | >= 1.56.0
-
 
 ## Usage
 
@@ -119,6 +109,51 @@ module "ram_user" {
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## Notes
+From the version v1.9.0, the module has removed the following `provider` setting:
+
+```hcl
+provider "alicloud" {
+  profile                 = var.profile != "" ? var.profile : null
+  region                  = var.region != "" ? var.region : null
+  skip_region_validation  = var.skip_region_validation
+}
+```
+
+If you still want to use the `provider` setting to apply this module, you can specify a supported version, like 1.8.0:
+
+```hcl
+module "vpc" {
+  source  = "alibaba/ram/alicloud"
+  version     = "1.8.0"
+  region      = "cn-hangzhou"
+  profile     = "Your-Profile-Name"
+  
+  create            = true
+  vpc_name          = "my-env-ram"
+  // ...
+}
+```
+
+If you want to upgrade the module to 1.9.0 or higher in-place, you can define a provider which same region with
+previous region:
+
+```hcl
+provider "alicloud" {
+   region  = "cn-hangzhou"
+   profile = "Your-Profile-Name"
+}
+module "ram" {
+  source  = "alibaba/ram/alicloud"
+  create            = true
+  vpc_name          = "my-env-ram"
+  // ...
+}
+```
+
+and then run `terraform init` and `terraform apply` to make the defined provider effect to the existing module state.
+More details see [How to use provider in the module](https://www.terraform.io/docs/language/modules/develop/providers.html#passing-providers-explicitly)
 
 ## Authors
 
