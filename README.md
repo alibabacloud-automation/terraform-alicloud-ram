@@ -106,7 +106,7 @@ module "ram_user" {
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Notes
-From the version v1.6.0, the module has removed the following `provider` setting:
+From the version v1.7.0, the module has removed the following `provider` setting:
 
 ```hcl
 provider "alicloud" {
@@ -116,12 +116,12 @@ provider "alicloud" {
 }
 ```
 
-If you still want to use the `provider` setting to apply this module, you can specify a supported version, like 1.56.0:
+If you still want to use the `provider` setting to apply this module, you can specify a supported version, like 1.64.0:
 
 ```hcl
 module "ram_user" {
   source = "terraform-alicloud-modules/ram_user/alicloud"
-  version     = "1.56.0"
+  version     = "1.64.0"
   region      = "cn-hangzhou"
   profile     = "Your-Profile-Name"
 
@@ -130,7 +130,7 @@ module "ram_user" {
 }
 ```
 
-If you want to upgrade the module to 1.6.0 or higher in-place, you can define a provider which same region with
+If you want to upgrade the module to 1.7.0 or higher in-place, you can define a provider which same region with
 previous region:
 
 ```hcl

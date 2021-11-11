@@ -108,7 +108,7 @@ module "ram_user" {
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## 注意事项
-本Module从版本v1.6.0开始已经移除掉如下的 provider 的显示设置：
+本Module从版本v1.7.0开始已经移除掉如下的 provider 的显示设置：
 ```hcl
 provider "alicloud" {
   profile                 = var.profile != "" ? var.profile : null
@@ -117,12 +117,12 @@ provider "alicloud" {
 }
 ```
 
-如果你依然想在Module中使用这个 provider 配置，你可以在调用Module的时候，指定一个特定的版本，比如 1.56.0:
+如果你依然想在Module中使用这个 provider 配置，你可以在调用Module的时候，指定一个特定的版本，比如 1.64.0:
 
 ```hcl
 module "ram_user" {
   source = "terraform-alicloud-modules/ram_user/alicloud"
-  version     = "1.56.0"
+  version     = "1.64.0"
   region      = "cn-hangzhou"
   profile     = "Your-Profile-Name"
 
@@ -130,7 +130,7 @@ module "ram_user" {
   is_reader = true
 }
 ```
-如果你想对正在使用中的Module升级到 1.6.0 或者更高的版本，那么你可以在模板中显示定义一个系统过Region的provider：
+如果你想对正在使用中的Module升级到 1.7.0 或者更高的版本，那么你可以在模板中显示定义一个系统过Region的provider：
 ```hcl
 provider "alicloud" {
   region  = "cn-hangzhou"
