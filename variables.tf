@@ -43,7 +43,7 @@ variable "password" {
 variable "secret_file" {
   description = "A file used to store access key and secret key of ther user "
   type        = string
-  default     = "secret.txt"
+  default     = ""
 }
 
 variable "force_destroy" {
@@ -52,3 +52,8 @@ variable "force_destroy" {
   default     = false
 }
 
+variable "create_user" {
+  description = "Whether to create ram user."
+  type        = bool
+  default     = true
+}
