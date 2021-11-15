@@ -110,13 +110,10 @@ From the version v1.3.0, the module has removed the following `provider` setting
 
 ```hcl
 provider "alicloud" {
-  version                 = ">=1.64.0"
-  profile                 = var.profile != "" ? var.profile : null
-  shared_credentials_file = var.shared_credentials_file != "" ? var.shared_credentials_file : null
-  region                  = var.region != "" ? var.region : null
-  skip_region_validation  = var.skip_region_validation
-  configuration_source    = "terraform-alicloud-modules/ram-account"
-}
+  version = ">=1.56.0"
+  region = var.region != "" ? var.region : null
+  configuration_source = "terraform-alicloud-modules/ram"
+} 
 ```
 
 If you still want to use the `provider` setting to apply this module, you can specify a supported version, like 1.2.0:
