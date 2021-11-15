@@ -1,5 +1,4 @@
 # used for testing
-*.tfvars
 
 # Compiled files
 *.tfstate
@@ -22,5 +21,3 @@
 *.bak
 *.bk
 *.txt
-
-
