@@ -111,9 +111,12 @@ module "ram_user" {
 本Module从版本v1.3.0开始已经移除掉如下的 provider 的显示设置：
 ```hcl
 provider "alicloud" {
+  version                 = ">=1.64.0"
   profile                 = var.profile != "" ? var.profile : null
+  shared_credentials_file = var.shared_credentials_file != "" ? var.shared_credentials_file : null
   region                  = var.region != "" ? var.region : null
   skip_region_validation  = var.skip_region_validation
+  configuration_source    = "terraform-alicloud-modules/ram-account"
 }
 ```
 
