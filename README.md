@@ -37,7 +37,7 @@ Setting `create_ram_user_login_profile` to true can allow the ram user login the
 
 ```hcl
 module "ram_user" {
-   source = "terraform-alicloud-modules/ram_user/alicloud"
+   source = "terraform-alicloud-modules/ram/alicloud"
 
    name = "terraformtest1"
    create_ram_user_login_profile = true
@@ -50,7 +50,7 @@ Setting `create_ram_access_key` to true can allocate a access key and secret key
 
 ```hcl
 module "ram_user" {
-   source = "terraform-alicloud-modules/ram_user/alicloud"
+   source = "terraform-alicloud-modules/ram/alicloud"
 
    name = "terraformtest1"
    create_ram_access_key = true
@@ -63,7 +63,7 @@ Create a ram admin
 
 ```hcl
 module "ram_user" {
-   source = "terraform-alicloud-modules/ram_user/alicloud"
+   source = "terraform-alicloud-modules/ram/alicloud"
 
    name = "terraformtest1"
    is_admin = true
@@ -74,7 +74,7 @@ Create a ram user with read-only permission
 
 ```hcl
 module "ram_user" {
-   source = "terraform-alicloud-modules/ram_user/alicloud"
+   source = "terraform-alicloud-modules/ram/alicloud"
 
    name = "terraformtest1"
    is_reader = true
