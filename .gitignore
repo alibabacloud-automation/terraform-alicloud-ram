@@ -1,8 +1,7 @@
-# used for testing
-
 # Compiled files
 *.tfstate
 *.tfstate.backup
+*.terraform.*
 
 # Module directory
 .terraform/
@@ -21,3 +20,6 @@
 *.bak
 *.bk
 *.txt
+**/.terraform/*
+.terraform.lock.hcl
+.terraform.tfstate.lock.info

@@ -1,10 +1,11 @@
-resource "random_uuid" "this" {}
+resource "random_uuid" "this" {
+}
 
 resource "alicloud_ram_policy" "this" {
-  name        = local.policy_name
-  description = "Allows to assume role in another Alibaba Cloud account"
-  document    = local.document
-  force       = var.force
+  policy_name     = local.policy_name
+  description     = "Allows to assume role in another Alibaba Cloud account"
+  policy_document = local.document
+  force           = var.force
 }
 
 resource "alicloud_ram_group" "this" {

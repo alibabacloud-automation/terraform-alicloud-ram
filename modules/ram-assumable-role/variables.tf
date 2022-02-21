@@ -21,9 +21,7 @@ variable "skip_region_validation" {
   default     = false
 }
 
-#########################
 # alicloud_ram_role
-#########################
 variable "create_role" {
   description = "Whether to create a role"
   type        = bool
@@ -34,18 +32,6 @@ variable "role_name" {
   description = "Name of the RAM role. If not set, a default name with prefix `ram-assumable-role-` will be returned."
   type        = string
   default     = ""
-}
-
-variable "description" {
-  description = "Description of the RAM role"
-  type        = string
-  default     = ""
-}
-
-variable "force" {
-  description = "This parameter is used for resource destroy"
-  type        = bool
-  default     = false
 }
 
 variable "role_requires_mfa" {
@@ -78,15 +64,26 @@ variable "mfa_age" {
   default     = 86400
 }
 
-#########################
+variable "description" {
+  description = "Description of the RAM role"
+  type        = string
+  default     = ""
+}
+
+variable "force" {
+  description = "This parameter is used for resource destroy"
+  type        = bool
+  default     = false
+}
+
 # alicloud_ram_role_policy_attachment
-#########################
 variable "custom_role_policy_names" {
   description = "List of ARNs of RAM policies to attach to RAM role"
   type        = list(string)
   default     = []
 }
 
+#alicloud_ram_role_policy_attachment
 variable "attach_admin_policy" {
   description = "Whether to attach an admin policy to a role"
   type        = bool
@@ -108,17 +105,17 @@ variable "attach_readonly_policy" {
 variable "admin_role_policy_name" {
   description = "Policy ARN to use for admin role"
   type        = string
-  default     = "AliyunOSSFullAccess"
+  default     = ""
 }
 
 variable "power_role_policy_name" {
   description = "Policy ARN to use for poweruser role"
   type        = string
-  default     = "AliyunOSSFullAccess"
+  default     = ""
 }
 
 variable "readonly_role_policy_name" {
   description = "Policy ARN to use for readonly role"
   type        = string
-  default     = "AliyunOSSReadOnlyAccess"
+  default     = ""
 }

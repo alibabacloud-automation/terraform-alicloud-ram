@@ -1,8 +1,7 @@
-resource "random_uuid" "this" {}
+resource "random_uuid" "this" {
+}
 
-#########################
 # Admin
-#########################
 resource "alicloud_ram_role" "admin" {
   count = var.create_admin_role ? 1 : 0
 
@@ -20,9 +19,7 @@ resource "alicloud_ram_role_policy_attachment" "admin" {
   policy_type = "System"
 }
 
-#########################
 # Poweruser
-#########################
 resource "alicloud_ram_role" "poweruser" {
   count = var.create_poweruser_role ? 1 : 0
 
@@ -40,9 +37,7 @@ resource "alicloud_ram_role_policy_attachment" "poweruser" {
   policy_type = "System"
 }
 
-#########################
 # Readonly
-#########################
 resource "alicloud_ram_role" "readonly" {
   count = var.create_readonly_role ? 1 : 0
 

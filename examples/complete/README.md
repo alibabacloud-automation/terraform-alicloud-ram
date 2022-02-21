@@ -1,9 +1,8 @@
-# RAM account example
+# Complete
 
 Configuration in this directory sets Alicloud account alias (also known as Console Account alias) and configures password policy.
 
-
-# Usage
+## Usage
 
 To run this example you need to execute:
 
@@ -13,13 +12,21 @@ $ terraform plan
 $ terraform apply
 ```
 
-Run `terraform destroy` when you don't need these resources.
+Note that this example may create resources which cost money. Run `terraform destroy` when you don't need these resources.
+
+This example provides the tf variables file in the folder `tfvars`. If you want to create or update this example,
+you can run this example as the following commands:
+```bash
+$ terraform plan -var-file=tfvars/01-update.tfvars
+$ terraform apply -var-file=tfvars/01-update.tfvars
+```
+
+Also, you can add more variables files in the folder `tfvars`.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
 
-## Outputs
-| Name | Description |
-|------|-------------|
-| this_caller_identity_account_id | The ID of the Alicloud account |
-
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
+| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | >= 1.56.0 |

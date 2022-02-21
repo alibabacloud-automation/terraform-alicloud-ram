@@ -21,18 +21,21 @@ variable "skip_region_validation" {
   default     = false
 }
 
+#alicloud_caller_identity
 variable "get_caller_identity" {
   description = "Whether to get alicloud account ID, User ID in which Terraform is authorized"
   type        = bool
   default     = true
 }
 
+#alicloud_ram_account_alias
 variable "account_alias" {
   description = "Alias of cloud account. If not set, a default name with prefix `ram-account-` will be returned."
   type        = string
   default     = ""
 }
 
+#alicloud_ram_account_password_policy
 variable "create_account_password_policy" {
   description = "Whether to create alicloud RAM account password policy"
   type        = bool
