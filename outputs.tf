@@ -12,4 +12,3 @@ output "this_ram_access_key_id" {
   description = "The access key ID"
   value       = element(concat(alicloud_ram_access_key.this.*.id, [""]), 0)
 }
-

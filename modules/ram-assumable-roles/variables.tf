@@ -9,6 +9,7 @@ variable "profile" {
   type        = string
   default     = ""
 }
+
 variable "shared_credentials_file" {
   description = "(Deprecated from version 1.3.0)This is the path to the shared credentials file. If this is not set and a profile is specified, $HOME/.aliyun/config.json will be used."
   type        = string
@@ -21,9 +22,7 @@ variable "skip_region_validation" {
   default     = false
 }
 
-#########################
 # alicloud_ram_role
-#########################
 variable "admin_role_requires_mfa" {
   description = "Whether admin role requires MFA"
   type        = bool
@@ -40,6 +39,12 @@ variable "readonly_role_requires_mfa" {
   description = "Whether readonly role requires MFA"
   type        = bool
   default     = true
+}
+
+variable "action" {
+  description = "Operations on specific resources"
+  type        = string
+  default     = ""
 }
 
 variable "trusted_role_arns" {
@@ -72,15 +77,7 @@ variable "force" {
   default     = false
 }
 
-variable "action" {
-  description = "Operations on specific resources"
-  type        = string
-  default     = ""
-}
-
-#########################
 # Admin
-#########################
 variable "create_admin_role" {
   description = "Whether to create admin role"
   type        = bool
@@ -96,12 +93,10 @@ variable "admin_role_name" {
 variable "admin_role_policy_names" {
   description = "List of policy names to use for admin role"
   type        = list(string)
-  default     = ["AliyunOSSFullAccess"]
+  default     = []
 }
 
-#########################
 # Poweruser
-#########################
 variable "create_poweruser_role" {
   description = "Whether to create poweruser role"
   type        = bool
@@ -117,12 +112,10 @@ variable "poweruser_role_name" {
 variable "poweruser_role_policy_names" {
   description = "List of policy names to use for poweruser role"
   type        = list(string)
-  default     = ["AliyunOSSFullAccess"]
+  default     = []
 }
 
-#########################
 # Readonly
-#########################
 variable "create_readonly_role" {
   description = "Whether to create readonly role"
   type        = bool
@@ -138,6 +131,5 @@ variable "readonly_role_name" {
 variable "readonly_role_policy_names" {
   description = "List of policy names to use for readonly role"
   type        = list(string)
-  default     = ["AliyunOSSReadOnlyAccess"]
+  default     = []
 }
-

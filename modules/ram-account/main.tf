@@ -2,7 +2,8 @@ data "alicloud_caller_identity" "this" {
   count = var.get_caller_identity ? 1 : 0
 }
 
-resource "random_uuid" "this" {}
+resource "random_uuid" "this" {
+}
 
 locals {
   alias = var.account_alias != "" ? var.account_alias : substr("ram-account-${replace(random_uuid.this.result, "-", "")}", 0, 32)

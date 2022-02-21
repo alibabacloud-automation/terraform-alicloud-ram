@@ -1,5 +1,4 @@
-output "this_ram_account_alias" {
+output "this_ram_user_name" {
   description = "Alias of cloud account."
-  value       = module.ram.this_ram_user_name
+  value       = module.ram_user.this_ram_user_name
 }
-

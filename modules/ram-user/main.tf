@@ -1,13 +1,11 @@
-resource "random_uuid" "this" {}
+resource "random_uuid" "this" {
+}
 
 locals {
   name = var.name != "" ? var.name : substr("ram-user-${replace(random_uuid.this.result, "-", "")}", 0, 32)
 }
 
-
-#########################
 # RAM user
-#########################
 resource "alicloud_ram_user" "this" {
   count = var.create_user ? 1 : 0
 
@@ -19,9 +17,7 @@ resource "alicloud_ram_user" "this" {
   comments     = var.comments != "" ? var.comments : null
 }
 
-#########################
 # RAM login profile
-#########################
 resource "alicloud_ram_login_profile" "this" {
   count = var.create_user && var.create_ram_user_login_profile ? 1 : 0
 
@@ -31,11 +27,9 @@ resource "alicloud_ram_login_profile" "this" {
   mfa_bind_required       = var.mfa_bind_required
 }
 
-#########################
 # RAM access key
-#########################
 resource "alicloud_ram_access_key" "this" {
-  count = var.create_user && var.create_ram_access_key && var.pgp_key != "" ? 1 : 0
+  count = var.create_user && var.create_ram_access_key ? 1 : 0
 
   secret_file = var.secret_file != "" ? var.secret_file : null
   status      = var.status
@@ -43,7 +37,7 @@ resource "alicloud_ram_access_key" "this" {
 }
 
 resource "alicloud_ram_access_key" "this_no_pgp" {
-  count = var.create_user && var.create_ram_access_key == "" ? 1 : 0
+  count = var.create_user && var.create_ram_access_key ? 1 : 0
 
   secret_file = var.secret_file != "" ? var.secret_file : null
   status      = var.status

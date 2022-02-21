@@ -21,6 +21,13 @@ variable "skip_region_validation" {
   default     = false
 }
 
+# RAM group
+variable "create_group" {
+  description = "Whether to create RAM group"
+  type        = bool
+  default     = true
+}
+
 variable "name" {
   description = "Name of the RAM group. If not set, a default name with prefix `ram-group-` will be returned."
   type        = string
@@ -39,27 +46,24 @@ variable "force" {
   default     = false
 }
 
+# RAM group membership
 variable "user_names" {
-  description = "Set of user name which will be added to group"
-  type        = set(string)
+  description = "List of user name which will be added to group"
+  type        = list(string)
+  default     = []
+}
+
+# RAM group policy attachements
+variable "attach_ram_self_management_policy" {
+  description = "Whether to attach RAM policy which allows RAM users to manage their credentials and MFA"
+  type        = bool
+  default     = true
 }
 
 variable "policy_type" {
   description = "Type of the RAM policy"
   type        = string
   default     = "System"
-}
-
-variable "create_group" {
-  description = "Whether to create RAM group"
-  type        = bool
-  default     = true
-}
-
-variable "attach_ram_self_management_policy" {
-  description = "Whether to attach RAM policy which allows RAM users to manage their credentials and MFA"
-  type        = bool
-  default     = true
 }
 
 variable "custom_group_policy_names" {
@@ -74,12 +78,7 @@ variable "custom_group_policies" {
   default     = []
 }
 
-variable "description" {
-  description = "Description of the RAM policy"
-  type        = string
-  default     = ""
-}
-
+# RAM policies
 variable "action" {
   description = "Operations on specific resources"
   type        = list(string)
@@ -96,4 +95,10 @@ variable "resource" {
   description = "Authorized Specific Object"
   type        = list(string)
   default     = []
+}
+
+variable "description" {
+  description = "Description of the RAM policy"
+  type        = string
+  default     = ""
 }

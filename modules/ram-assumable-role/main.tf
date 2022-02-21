@@ -1,4 +1,5 @@
-resource "random_uuid" "this" {}
+resource "random_uuid" "this" {
+}
 
 resource "alicloud_ram_role" "this" {
   count = var.create_role ? 1 : 0

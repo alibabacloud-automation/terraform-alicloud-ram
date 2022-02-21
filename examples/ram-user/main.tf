@@ -9,5 +9,3 @@ module "ram_user" {
   create_ram_user_login_profile = true
   create_ram_access_key         = true
 }
-
-

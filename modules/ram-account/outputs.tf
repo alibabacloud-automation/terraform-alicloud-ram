@@ -5,5 +5,5 @@ output "this_caller_identity_account_id" {
 
 output "this_ram_account_alias" {
   description = "Alias of alicloud account."
-  value       = alicloud_ram_account_alias.this.*.account_alias
+  value       = concat(alicloud_ram_account_alias.this.*.account_alias, [""])[0]
 }
