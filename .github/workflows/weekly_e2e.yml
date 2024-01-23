@@ -23,10 +23,15 @@ jobs:
       - name: Get job id
         run: |
           echo "The current job id is ${{ steps.set-job-id.outputs.jobId }}"
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - name: weekly e2e test
         run: |
           objectPath="github-action/${{github.repository}}/weekly-e2e/Action-${{github.run_number}}-${{github.run_id}}-${{ steps.set-job-id.outputs.jobId }}"
-          go run scripts/curl_fc_trigger.go main ${{github.repository}} ${objectPath}
+          echo "default branch: ${{ steps.extract_branch.outputs.branch }}"
+          go run scripts/curl_fc_trigger.go ${{ steps.extract_branch.outputs.branch }} ${{github.repository}} ${objectPath}
           go run scripts/e2e_check.go ${objectPath}
       # - name: update test record
       #   run: |
