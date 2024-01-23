@@ -87,6 +87,9 @@ func updateTestRecord(ossObjectPath string) {
 	}
 	defer response.Body.Close()
 	data, _ := io.ReadAll(response.Body)
+	if response.StatusCode != 200 || len(data) == 0 {
+		return
+	}
 	currentTestRecord := string(data) + "\n"
 
 	testRecordFileName := "TestRecord.md"
