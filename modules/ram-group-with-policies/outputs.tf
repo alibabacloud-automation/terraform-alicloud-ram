@@ -11,21 +11,21 @@ output "this_group_name" {
 # RAM ram_self_management policies
 output "this_ram_self_management_policy_name" {
   description = "RAM ram_self_management policy name"
-  value       = concat(alicloud_ram_policy.ram_self_management.*.name, [""])
+  value       = alicloud_ram_policy.ram_self_management.*.name
 }
 
 output "this_ram_self_management_policy_description" {
   description = "Description of ram_self_management policy"
-  value       = concat(alicloud_ram_policy.ram_self_management.*.description, [""])
+  value       = alicloud_ram_policy.ram_self_management.*.description
 }
 
 # RAM custom policies
 output "this_custom_policy_name" {
   description = "RAM custom name"
-  value       = concat(alicloud_ram_policy.custom.*.name, [""])
+  value       = alicloud_ram_policy.custom.*.name
 }
 
 output "this_custom_description" {
   description = "Description of custom policy"
-  value       = concat(alicloud_ram_policy.custom.*.description, [""])
+  value       = alicloud_ram_policy.custom.*.description
 }

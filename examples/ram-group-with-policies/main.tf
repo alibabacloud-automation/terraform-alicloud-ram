@@ -38,4 +38,5 @@ module "ram_group_superadmins" {
   effect      = "Deny"
   resource    = ["acs:oss:*:*:mybucket"]
   policy_type = "Custom"
+  description = "example"
 }

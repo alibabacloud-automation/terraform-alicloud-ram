@@ -18,6 +18,9 @@ module "ram_assumable_roles" {
   trusted_role_arns = [
     "acs:ram::${data.alicloud_account.this.id}:root"
   ]
+  trusted_role_services = [
+    "ecs.aliyuncs.com"
+  ]
   poweruser_role_policy_names = [
     "AliyunOSSFullAccess",
     "AliyunNASReadOnlyAccess"

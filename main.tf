@@ -17,7 +17,7 @@ resource "alicloud_ram_user" "this" {
 resource "alicloud_ram_login_profile" "this" {
   count = var.create_ram_user_login_profile ? 1 : 0
 
-  user_name = local.user_name
+  user_name = var.create_user ? alicloud_ram_user.this[0].name : local.user_name
   password  = var.password
 }
 
@@ -25,7 +25,7 @@ resource "alicloud_ram_login_profile" "this" {
 resource "alicloud_ram_access_key" "this" {
   count = var.create_ram_access_key ? 1 : 0
 
-  user_name   = local.user_name
+  user_name   = var.create_user ? alicloud_ram_user.this[0].name : local.user_name
   secret_file = var.secret_file
 }
 
@@ -46,13 +46,13 @@ data "alicloud_ram_policies" "reader" {
 resource "alicloud_ram_user_policy_attachment" "attach1" {
   count       = var.is_admin ? 1 : 0
   policy_name = concat(data.alicloud_ram_policies.admin.*.policies.0.name, [""])[0]
-  user_name   = local.user_name
+  user_name   = var.create_user ? alicloud_ram_user.this[0].name : local.user_name
   policy_type = var.policy_type
 }
 
 resource "alicloud_ram_user_policy_attachment" "attach2" {
   count       = var.is_reader ? 1 : 0
   policy_name = concat(data.alicloud_ram_policies.reader.*.policies.0.name, [""])[0]
-  user_name   = local.user_name
+  user_name   = var.create_user ? alicloud_ram_user.this[0].name : local.user_name
   policy_type = var.policy_type
 }

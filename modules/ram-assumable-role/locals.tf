@@ -24,7 +24,7 @@ locals {
 
   assume_role_with_mfa_document = <<EOF
 		{
-            "Statement": [
+             "Statement": [
                 {
                     "Action": ${local.action},
                     "Effect": "Allow",
@@ -32,12 +32,9 @@ locals {
                         "RAM": ${local.trusted_role_arns},
                         "Service": ${local.trusted_role_services}
                     },
-                    "condition": {
+                    "Condition": {
                         "Bool": {
-                            "acs:MultiFactorAuthPresent": "true"
-                        },
-                        "NumericLessThan": {
-                            "acs:MultiFactorAuthAge": ${local.mfa_age}
+                            "acs:MFAPresent": ["true"]
                         }
                     }
                 }
