@@ -34,6 +34,9 @@ module "ram_assumable_roles_in_prod" {
   trusted_role_arns = [
     "acs:ram::${data.alicloud_account.this.id}:root"
   ]
+  trusted_role_services = [
+    "ecs.aliyuncs.com"
+  ]
 
   create_admin_role     = true
   create_poweruser_role = true
@@ -43,11 +46,18 @@ module "ram_assumable_roles_in_prod" {
 
 }
 
+data "alicloud_ram_policies" "custom" {
+  type       = "Custom"
+}
+
 module "ram_assumable_role_custom" {
   source = "../../modules/ram-assumable-role"
 
   trusted_role_arns = [
     "acs:ram::${data.alicloud_account.this.id}:root"
+  ]
+  trusted_role_services = [
+    "ecs.aliyuncs.com"
   ]
 
   create_role = true
@@ -56,7 +66,7 @@ module "ram_assumable_role_custom" {
   role_requires_mfa = true
 
   custom_role_policy_names = [
-    "CodePipelinePassRole"
+    concat(data.alicloud_ram_policies.custom.*.policies.0.policy_name, [""])[0]
   ]
 }
 

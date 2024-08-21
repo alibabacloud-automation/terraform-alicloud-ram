@@ -49,7 +49,6 @@ module "ram_group_complete_with_custom_policy" {
   effect   = "Deny"
 
   create_group = false
-  policy_name  = "AliyunOSSFullAccess"
   policy_type  = "Custom"
   user_names = [
     module.ram_user1.this_ram_user_name,

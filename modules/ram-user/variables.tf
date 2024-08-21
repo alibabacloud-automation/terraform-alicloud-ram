@@ -86,7 +86,7 @@ variable "password_reset_required" {
 variable "mfa_bind_required" {
   description = "This parameter indicates whether the MFA needs to be bind when the user first logs in"
   type        = bool
-  default     = false
+  default     = true
 }
 
 # RAM access key

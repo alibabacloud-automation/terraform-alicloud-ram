@@ -10,4 +10,5 @@ module "ram_admin" {
   password                      = "123_Xxxxxxxxx"
   create_ram_access_key         = true
   is_admin                      = true
+  admin_name_regex              = "AdministratorAccess"
 }
