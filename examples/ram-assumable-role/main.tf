@@ -33,8 +33,24 @@ module "ram_assumable_role_admin" {
 # RAM assumable role with custom policies
 ###############################
 
-data "alicloud_ram_policies" "custom" {
-  type       = "Custom"
+resource "random_integer" "default" {
+  min = 10000
+  max = 99999
+}
+resource "alicloud_ram_policy" "default" {
+  policy_name     = "examplepolicy${random_integer.default.result}"
+  policy_document = <<DEFINITION
+	{
+		"Version": "1",
+		"Statement": [
+		  {
+			"Action": "mns:*",
+			"Resource": "*",
+			"Effect": "Allow"
+		  }
+		]
+	  }
+	DEFINITION
 }
 
 module "ram_assumable_role_custom" {
@@ -54,6 +70,6 @@ module "ram_assumable_role_custom" {
   ]
 
   custom_role_policy_names = [
-    concat(data.alicloud_ram_policies.custom.*.policies.0.policy_name, [""])[0]
+    alicloud_ram_policy.default.policy_name
   ]
 }
