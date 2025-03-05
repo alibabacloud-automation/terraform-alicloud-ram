@@ -1,3 +1,9 @@
+# Deprecated
+
+Thank you for your interest in Alibaba Cloud Terraform Module. This Module will be out of maintenance as of today and will be officially taken offline in the future. We recommend you to use [ram-user](https://registry.terraform.io/modules/terraform-alicloud-modules/ram-user/alicloud/latest), [ram-role](https://registry.terraform.io/modules/terraform-alicloud-modules/ram-role/alicloud/latest), [ram-policy](https://registry.terraform.io/modules/terraform-alicloud-modules/ram-policy/alicloud/latest) as an alternative. More available Modules can be searched in [Alibaba Cloud Terraform Module](https://registry.terraform.io/browse/modules?provider=alibaba).
+
+Thank you again for your understanding and cooperation.
+
 # Alicloud Resource Access Management (RAM) Terraform module
 
 These types of resources are supported:

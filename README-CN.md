@@ -1,3 +1,9 @@
+# 下线公告
+
+感谢您对阿里云 Terraform Module 的关注。即日起，本 Module 将停止维护并会在将来正式下线。推荐您使用 [ram-user](https://registry.terraform.io/modules/terraform-alicloud-modules/ram-user/alicloud/latest)，[ram-role](https://registry.terraform.io/modules/terraform-alicloud-modules/ram-role/alicloud/latest)，[ram-policy](https://registry.terraform.io/modules/terraform-alicloud-modules/ram-policy/alicloud/latest) 作为替代方案。更多丰富的 Module 可在 [阿里云 Terraform Module](https://registry.terraform.io/browse/modules?provider=alibaba) 中搜索获取。
+
+再次感谢您的理解和合作。
+
 # Alicloud Resource Access Management (RAM) Terraform module
 
 支持创建以下类型的资源：
