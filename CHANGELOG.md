@@ -1,4 +1,7 @@
-## 2.1.0 (Unreleased)
+## 2.1.0 (March 5, 2025)
+
+- deprecate [GH-14](https://github.com/alibabacloud-automation/terraform-alicloud-ram/pull/14)
+
 ## 2.0.0 (August 22, 2024)
 
 - Module: update default value for mfa_bind_required, update assume_role_with_mfa_document; Example: improve the examples [GH-12](https://github.com/alibabacloud-automation/terraform-alicloud-ram/pull/12)
